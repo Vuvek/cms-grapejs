@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import ImageSlider from "@/components/customImageSlider/sliderComponents";
 import SrollableLogos from "@/components/scrollableLogos/scrollableLogos";
 import FeaturedCategory from "../featuredCategory/featuredCategory";
@@ -8,6 +8,12 @@ import LogoListing from "../logoLisitng/logoListing";
 import Faq from "../faq/faq";
 import Review from "../review/review";
 import Slides from "../slides/slides";
+import ConstantSlides from "../constatntSlidesScroll/constantSlides";
+import HorizontalSliderWithScroll from "../horizontalSlideScroll/horizantalSlide";
+import ConstantHorizantalScroll from "../constantHorizantalScroll/constantHorizantalScroll";
+import DotSlideScroll from "../dotsSlideScroll/dotSlideScroll";
+import TabSection from "../tabs/tabs";
+import SimpleSlider from "../simpleSlider/simpleSlider";
 
 const renderComponent = (component: any, index: number) => {
   if (component.type === "textnode") {
@@ -34,7 +40,7 @@ const renderComponent = (component: any, index: number) => {
   if (type === "image") {
     return (
       <img
-        key={index}
+        key={`component-${index}`}
         id={attributes?.id}
         src={attributes?.src}
         alt={attributes?.alt || "image"}
@@ -45,34 +51,82 @@ const renderComponent = (component: any, index: number) => {
 
   if (type === "button") {
     return (
-      <button key={index} {...attributes} disabled>
+      <button key={`component-${index}`} {...attributes} disabled>
         {components && components.map(renderComponent)}
       </button>
     );
   }
   if (type === "video") {
+    console.log(component,'kalsjdflkasdfjlkasdfjslkdfjsadkl')
     return (
-      <video key={index} src={component?.src} autoPlay controls loop></video>
+      <video key={`component-${index}`} src={component?.attributes.src} autoPlay
+      loop
+      muted
+      playsInline></video>
     );
   }
 
   if (type === "link") {
     return (
-      <a key={index} href={attributes?.href || "#"} {...attributes}>
+      <a key={`component-${index}`} href={attributes?.href || "#"} {...attributes}>
         {components && components.map(renderComponent)}
       </a>
     );
   }
 
   if (type === "slides") {
-    return <Slides key={index} />;
+    return <Slides key={`component-${index}`} />;
   }
   if (type === "faq-section") {
-    return <Faq key={index} />;
+    console.log(type,'adsjlksadfjlksadfjkl')
+    return <Faq key={`component-${index}`} />;
   }
 
+  else if (type === "custom-code") {
+    return (
+      <Fragment key={`component-${index}`}>
+        <div dangerouslySetInnerHTML={{__html : component['custom-code-plugin__code']}}/>
+      </Fragment>
+    )
+  }
+  else if (type === "slides") {
+    return (
+      <Slides key={`component-${index}`} />
+    );
+  } 
+  else if (type == "constant-slides") {
+    return (
+      <ConstantSlides key={`component-${index}`} />
+    );
+  } 
+  else if (type == "horizontal-slides") {
+    return (
+      <HorizontalSliderWithScroll key={`component-${index}`} />
+    );
+  } 
+  else if (type == "constant-horizantal-slides") {
+    return (
+      <ConstantHorizantalScroll key={`component-${index}`} />
+    );
+  } 
+  else if (type == "dots-slides") {
+    return (
+      <DotSlideScroll key={`component-${index}`} />
+    );
+  } 
+  else if (type == "tab") {
+    return (
+      <TabSection key={`component-${index}`} />
+    );
+  } 
+  else if (type == "simple-slider") {
+    return (
+      <SimpleSlider key={`component-${index}`} />
+    );
+  } 
+
   return (
-    <Tag key={index} {...elementProps}>
+    <Tag key={`component-${index}`} {...elementProps}>
       {components &&
         components.map((child: any, idx: number) =>
           renderComponent(child, idx)
@@ -131,37 +185,90 @@ const Preview = ({ pageId }: { pageId: string }) => {
       };
     }
   }, [stylesData]);
-
+  
   return (
     <div>
       {finalData.map((item: any, index: number) => {
+      console.log(item,'akdjflkasdflkajdfffffffffffffffffffffffffffffffffffff')
+        console.log(item?.type,'akldfjsladkfjslkdfjslkdfjslkdfjslfkjs')
         if (item.type === "custom-slider") {
-          return <ImageSlider slides={item.attributes?.slides} key={index} />;
-        } else if (item.type === "Slider-logos") {
+          return <ImageSlider slides={item.attributes?.slides} key={`component-${index}`} />;
+        } 
+        else if (item.type === "Slider-logos") {
           return (
-            <SrollableLogos slides={item.attributes?.logoSlides} key={index} />
+            <SrollableLogos slides={item.attributes?.logoSlides} key={`component-${index}`} />
           );
-        } else if (item.type === "dynamic-products") {
+        } 
+        else if (item.type === "custom-code") {
+          // return (
+          //   <>
+          //     <div dangerouslySetInnerHTML={{__html : item['custom-code-plugin__code']}}/>
+          //   </>
+          // )
+          console.log('Custommmmmmmmmmmmmmm Codeeeeeeeee')
+          return (
+            <>
+              <h1>hello</h1>
+            </>
+          )
+        }
+        else if (item.type === "slides") {
+          return (
+            <Slides key={`component-${index}`} />
+          );
+        } 
+        else if (item.type == "constant-slides") {
+          return (
+            <ConstantSlides key={`component-${index}`} />
+          );
+        } 
+        else if (item.type == "horizontal-slides") {
+          return (
+            <HorizontalSliderWithScroll key={`component-${index}`} />
+          );
+        } 
+        else if (item.type == "constant-horizantal-slides") {
+          return (
+            <ConstantHorizantalScroll key={`component-${index}`} />
+          );
+        } 
+        else if (item.type == "dots-slides") {
+          return (
+            <DotSlideScroll key={`component-${index}`} />
+          );
+        } 
+        else if (item.type == "tab") {
+          return (
+            <TabSection key={`component-${index}`} />
+          );
+        } 
+        else if (item.type == "simple-slider") {
+          return (
+            <SimpleSlider key={`component-${index}`} />
+          );
+        } 
+        else if (item.type == "dynamic-products") {
           return (
             <FeaturedCategory
-              key={index}
+              key={`component-${index}`}
               serverSideData={item?.attributes?.serverSideData}
             />
           );
         } else if (item.type === "logo-listing") {
-          return <LogoListing key={index} />;
+          return <LogoListing key={`component-${index}`} />;
         } else if (item.type === "alphabet-listing-section") {
-          return <BrAlphabet key={index} />;
+          return <BrAlphabet key={`component-${index}`} />;
         } else if (item.type === "two-section") {
-          return <Faq key={index} />;
+          return <Faq key={`component-${index}`} />;
         } else if (item.type === "review-list") {
-          return <Review key={index} />;
+          return <Review key={`component-${index}`} />;
         } else if (item.type === "slides") {
-          return <Slides key={index} />;
+          return <Slides key={`component-${index}`} />;
         } else if (item.type === "faq-section") {
-          return <Faq key={index} />;
+          console.log('Custommmmmmmmmmmmmmm Codeeeeeeeee')
+          return <Faq key={`component-${index}`} />;
         } else {
-          return <div key={index}>{renderComponent(item, index)}</div>;
+          return <div key={`component-${index}`}>{renderComponent(item, index)}</div>;
         }
       })}
     </div>

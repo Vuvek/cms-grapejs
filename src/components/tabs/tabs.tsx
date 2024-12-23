@@ -276,7 +276,7 @@ const TabSection = () => {
               >
                 <div className="w-full">
                   <div
-                    className={`border border-gray-200 bg-white border-solid relative h-auto lg:h-[800px] rounded-2xl`}
+                    className={`border border-gray-200 bg-white border-solid relative h-auto rounded-2xl`}
                   >
                     <div className="relative">
                       <a

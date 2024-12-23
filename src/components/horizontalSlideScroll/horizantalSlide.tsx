@@ -8,7 +8,7 @@ import { Scrollbar } from "swiper/modules"; // Import the Scrollbar module
 import "swiper/css";
 import "swiper/css/scrollbar";
 
-const CustomSlider = () => {
+const HorizontalSliderWithScroll = () => {
   const logos = [
     "https://acresecurity.com/hs-fs/hubfs/Website/Pages/Homepage/Card%20-%20Solutions.png?width=800&height=1000&name=Card%20-%20Solutions.png",
     "https://acresecurity.com/hs-fs/hubfs/Website/Pages/Homepage/Card%20-%20Solutions-1.png?width=800&height=1000&name=Card%20-%20Solutions-1.png",
@@ -64,7 +64,7 @@ const CustomSlider = () => {
   );
 };
 
-export default CustomSlider;
+export default HorizontalSliderWithScroll;
 
 // import React, {  useState } from "react";
 // import { Swiper, SwiperSlide } from "swiper/react";

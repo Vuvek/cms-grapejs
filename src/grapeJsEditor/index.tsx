@@ -96,10 +96,12 @@ const GrapeJsEditor: React.FC<grapejsEditorProps> = ({ serverSideData }) => {
           "https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css",
           "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css",
           "https://unpkg.com/flickity@2.2.2/dist/flickity.min.cssflickity/dist/flickity.min.css",
-          '/styles/main.css'
+          "/styles/main.css",
         ],
       },
     });
+
+   
 
     // Add icon in panel
     AddSaveDataPanel(editorRef.current);
@@ -113,13 +115,14 @@ const GrapeJsEditor: React.FC<grapejsEditorProps> = ({ serverSideData }) => {
     gsLogoListing(editorRef.current);
     GsReview(editorRef.current);
     GsFaq(editorRef.current);
+
     GsSlides(editorRef.current);
     GsConstantScrollSlide(editorRef.current);
-    GsHorizantalScrollSlide(editorRef.current)
-    GsConstantHorizantalScrollSlide(editorRef.current)
-    GsDotSlideScroll(editorRef.current)
-    GsTabs(editorRef.current)
-    GsSimpleSlider(editorRef.current)
+    GsHorizantalScrollSlide(editorRef.current);
+    GsConstantHorizantalScrollSlide(editorRef.current);
+    GsDotSlideScroll(editorRef.current);
+    GsTabs(editorRef.current);
+    GsSimpleSlider(editorRef.current);
   }, [serverSideData]);
 
   return (
