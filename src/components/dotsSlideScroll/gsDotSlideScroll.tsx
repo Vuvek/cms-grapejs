@@ -1,6 +1,5 @@
 import { Editor } from "grapesjs";
 import { createRoot } from "react-dom/client";
-import ConstantSlides from "./dotSlideScroll";
 import DotSlideScroll from "./dotSlideScroll";
 
 const GsDotSlideScroll = (editor: Editor) => {
