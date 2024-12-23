@@ -1,0 +1,360 @@
+*, ::before, ::after{
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x:  ;
+    --tw-pan-y:  ;
+    --tw-pinch-zoom:  ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-ordinal:  ;
+    --tw-slashed-zero:  ;
+    --tw-numeric-figure:  ;
+    --tw-numeric-spacing:  ;
+    --tw-numeric-fraction:  ;
+    --tw-ring-inset:  ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgba(59, 130, 246, 0.5);
+    --tw-ring-offset-shadow: 0 0 rgba(0,0,0,0);
+    --tw-ring-shadow: 0 0 rgba(0,0,0,0);
+    --tw-shadow: 0 0 rgba(0,0,0,0);
+    --tw-shadow-colored: 0 0 rgba(0,0,0,0);
+    --tw-blur:  ;
+    --tw-brightness:  ;
+    --tw-contrast:  ;
+    --tw-grayscale:  ;
+    --tw-hue-rotate:  ;
+    --tw-invert:  ;
+    --tw-saturate:  ;
+    --tw-sepia:  ;
+    --tw-drop-shadow:  ;
+    --tw-backdrop-blur:  ;
+    --tw-backdrop-brightness:  ;
+    --tw-backdrop-contrast:  ;
+    --tw-backdrop-grayscale:  ;
+    --tw-backdrop-hue-rotate:  ;
+    --tw-backdrop-invert:  ;
+    --tw-backdrop-opacity:  ;
+    --tw-backdrop-saturate:  ;
+    --tw-backdrop-sepia:  ;
+}
+
+::backdrop{
+    --tw-border-spacing-x: 0;
+    --tw-border-spacing-y: 0;
+    --tw-translate-x: 0;
+    --tw-translate-y: 0;
+    --tw-rotate: 0;
+    --tw-skew-x: 0;
+    --tw-skew-y: 0;
+    --tw-scale-x: 1;
+    --tw-scale-y: 1;
+    --tw-pan-x:  ;
+    --tw-pan-y:  ;
+    --tw-pinch-zoom:  ;
+    --tw-scroll-snap-strictness: proximity;
+    --tw-ordinal:  ;
+    --tw-slashed-zero:  ;
+    --tw-numeric-figure:  ;
+    --tw-numeric-spacing:  ;
+    --tw-numeric-fraction:  ;
+    --tw-ring-inset:  ;
+    --tw-ring-offset-width: 0px;
+    --tw-ring-offset-color: #fff;
+    --tw-ring-color: rgba(59, 130, 246, 0.5);
+    --tw-ring-offset-shadow: 0 0 rgba(0,0,0,0);
+    --tw-ring-shadow: 0 0 rgba(0,0,0,0);
+    --tw-shadow: 0 0 rgba(0,0,0,0);
+    --tw-shadow-colored: 0 0 rgba(0,0,0,0);
+    --tw-blur:  ;
+    --tw-brightness:  ;
+    --tw-contrast:  ;
+    --tw-grayscale:  ;
+    --tw-hue-rotate:  ;
+    --tw-invert:  ;
+    --tw-saturate:  ;
+    --tw-sepia:  ;
+    --tw-drop-shadow:  ;
+    --tw-backdrop-blur:  ;
+    --tw-backdrop-brightness:  ;
+    --tw-backdrop-contrast:  ;
+    --tw-backdrop-grayscale:  ;
+    --tw-backdrop-hue-rotate:  ;
+    --tw-backdrop-invert:  ;
+    --tw-backdrop-opacity:  ;
+    --tw-backdrop-saturate:  ;
+    --tw-backdrop-sepia:  ;
+}
+
+.container-auto {
+    width: 100% !important;
+    /* padding: 0px !important; */
+    margin: auto !important;
+}
+
+@media (min-width: 765px) {
+    .container-auto {
+        max-width: 1300px !important;
+        margin: auto !important;
+    }
+}
+
+
+.bg-position {
+    background-position: center bottom -112px;
+}
+
+.bg-50-position {
+  background-position: 50% 0;
+}
+
+.btn{
+    /* display: inline-block !important; */
+    border-width: 0px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    outline: 2px solid transparent !important;
+    outline-offset: 2px !important;
+    --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color) !important;
+    --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color) !important;
+    box-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color), var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color), 0 0 rgba(0,0,0,0) !important;
+    box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000) !important;
+}
+
+
+.btn-primary{
+    border-radius: 4px !important;
+    border-width: 1px !important;
+    --tw-border-opacity: 1 !important;
+    border-color: rgba(222, 40, 45, 1) !important;
+    border-color: rgb(222 40 45 / var(--tw-border-opacity)) !important;
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(222, 40, 45, 1) !important;
+    background-color: rgb(222 40 45 / var(--tw-bg-opacity)) !important;
+    --tw-text-opacity: 1 !important;
+    color: rgba(255, 255, 255, 1) !important;
+    color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+}
+
+
+.btn-primary:hover {
+    border-radius: 4px !important;
+    border-width: 1px !important;
+    --tw-border-opacity: 1 !important;
+    border-color: rgba(185, 28, 28, 1) !important;
+    border-color: rgb(185 28 28 / var(--tw-border-opacity)) !important;
+    --tw-bg-opacity: 1 !important;
+    background-color: rgba(185, 28, 28, 1) !important;
+    background-color: rgb(185 28 28 / var(--tw-bg-opacity)) !important;
+    --tw-text-opacity: 1 !important;
+    color: rgba(255, 255, 255, 1) !important;
+    color: rgb(255 255 255 / var(--tw-text-opacity)) !important;
+}
+
+@media (min-width: 1024px) {
+    .btn {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+        padding-top: 8px !important;
+        padding-bottom: 8px !important;
+        font-size: 14px !important;
+    }
+}
+
+
+.grid {
+    display: grid !important;
+  }
+
+/* ************************** flickity ******************************** */
+  /* The Flickity carousel container */
+/* .carousel {
+    display: flex;
+    overflow: hidden;
+    width: 100%; 
+    margin: 0 auto;
+  } */
+  
+  /* Individual Flickity cell */
+  /* .carousel-cell {
+    width: 100%; 
+    flex-shrink: 0; 
+    margin-right: 10px; 
+    height: 200px; 
+    position: relative;
+  }
+   */
+  /* Adjust image sizing to fill the cell */
+  /* .carousel-cell img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+  } */
+
+
+
+  /*! Flickity v3.0.0
+https://flickity.metafizzy.co
+---------------------------------------------- */
+/* .flickity-enabled{position:relative}.flickity-enabled:focus{outline:0}.flickity-viewport{overflow:hidden;position:relative;height:100%;touch-action:pan-y}.flickity-slider{position:absolute;width:100%;height:100%;left:0}.flickity-rtl .flickity-slider{left:unset;right:0}.flickity-enabled.is-draggable{-webkit-tap-highlight-color:transparent;user-select:none}.flickity-enabled.is-draggable .flickity-viewport{cursor:move;cursor:grab}.flickity-enabled.is-draggable .flickity-viewport.is-pointer-down{cursor:grabbing}.flickity-cell{position:absolute;left:0}.flickity-rtl .flickity-cell{left:unset;right:0}.flickity-button{position:absolute;background:hsl(0 0% 100% / 75%);border:none;color:#333}.flickity-button:hover{background:#fff;cursor:pointer}.flickity-button:focus{outline:0;box-shadow:0 0 0 5px #19f}.flickity-button:active{opacity:.6}.flickity-button:disabled{opacity:.3;cursor:auto;pointer-events:none}.flickity-button-icon{fill:currentColor}.flickity-prev-next-button{top:50%;width:44px;height:44px;border-radius:50%;transform:translateY(-50%)}.flickity-prev-next-button.previous{left:10px}.flickity-prev-next-button.next{right:10px}.flickity-rtl .flickity-prev-next-button.previous{left:auto;right:10px}.flickity-rtl .flickity-prev-next-button.next{right:auto;left:10px}.flickity-prev-next-button .flickity-button-icon{position:absolute;left:20%;top:20%;width:60%;height:60%}.flickity-page-dots{position:absolute;width:100%;bottom:-25px;text-align:center;display:flex;justify-content:center;flex-wrap:wrap}.flickity-rtl .flickity-page-dots{direction:rtl}.flickity-page-dot{display:block;width:10px;height:10px;padding:0;margin:0 8px;background:hsl(0 0% 20% / 25%);border-radius:50%;cursor:pointer;appearance:none;border:none;text-indent:-9999px;overflow:hidden}.flickity-rtl .flickity-page-dot{text-indent:9999px}.flickity-page-dot:focus{outline:0;box-shadow:0 0 0 5px #19f}.flickity-page-dot.is-selected{background:hsl(0 0% 20% / 100%)} */
+
+
+
+/* Wrapper for both Swiper and scrollbar */
+
+.over-flow {
+    overflow: hidden;
+}
+.slider-wrapper {
+    position: relative;
+    height: 600px;
+    width: 100%;
+    max-width: 1700px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  
+  /* Main container holding Swiper */
+  .slider-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Allow cards to extend outside the container */
+  .slider-container .swiper-wrapper {
+    position: relative;
+    overflow: visible;
+  }
+  
+  /* Styling for each card */
+  .slide-card {
+    width: 320px; /* Adjust card width */
+    margin-left: 20px; /* Spacing */
+    transition: transform 0.3s ease;
+  }
+  
+  .slide-card img {
+    border-radius: 8px; /* Optional rounded corners */
+  }
+  
+  /* Scrollbar container */
+  .scrollbar-container {
+    position: relative;
+    width: 100%;
+    height: 10px; /* Adjust scrollbar height */
+    background: #f1f1f1;
+    overflow-x: auto;
+    display: flex;
+    align-items: center;
+    margin-top: 10px; /* Space between Swiper and scrollbar */
+  }
+  
+  .scrollbar {
+    height: 100%;
+    width: 200%; /* Adjust width dynamically based on total slides */
+    background: #888; /* Scrollbar thumb color */
+    cursor: pointer;
+  }
+  
+  /* Hover effect on scrollbar */
+  .scrollbar-container:hover .scrollbar {
+    background: #555;
+  }
+  
+
+  .card-img-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1.25rem;
+    border-radius: 0;
+    opacity: 0;
+    text-decoration: none;
+    transition: opacity .33s;
+}
+
+
+  .card-img-overlay:before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .6);
+}
+
+
+
+
+/* Swiper pagination bullets */
+.swiper-pagination-bullet {
+  @apply w-14 h-14 flex items-center justify-center rounded-full cursor-pointer;
+  opacity: 1 !important;
+  background: transparent !important;
+}
+
+.swiper-pagination-bullet-active {
+  @apply scale-110 ring-2 ring-blue-500 transition-transform duration-300;
+}
+
+
+
+
+.swiper-pagination {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 16px; /* Controls the gap between dots */
+}
+
+.swiper-pagination-bullet {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+/* ********************************** Tooltip ********************************* */
+
+.tooltip:hover .tooltip-block {
+  display: block !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
