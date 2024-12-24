@@ -479,5 +479,6 @@ export const styleManagerConfig = {
       open: false,
       buildProps: ["transition", "transform"],
     },
+   
   ],
 };
