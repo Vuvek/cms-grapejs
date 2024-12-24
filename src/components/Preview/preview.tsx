@@ -57,18 +57,57 @@ const renderComponent = (component: any, index: number) => {
     );
   }
   if (type === "video") {
-    console.log(component,'kalsjdflkasdfjlkasdfjslkdfjsadkl')
-    return (
-      <video key={`component-${index}`} src={component?.attributes.src} autoPlay
-      loop
-      muted
-      playsInline></video>
-    );
+    if (component?.provider === "vi") {
+      return (
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            height:'100vh',
+            paddingTop: "50.25%", // Maintain 16:9 aspect ratio
+          }}
+        >
+          <iframe
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              border: "none",
+            }}
+            src={`${component?.src}?autoplay=1&muted=1&background=1`} // Ensure correct Vimeo params
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            title="Vimeo Video"
+          ></iframe>
+        </div>
+      );
+    } else {
+      return (
+        <video
+          key={`component-${index}`}
+          src={component?.attributes.src}
+          autoPlay
+          loop
+          muted
+          playsInline
+          style={{
+            width: "100%",
+            height: "auto", // Ensures the video maintains its aspect ratio
+          }}
+        ></video>
+      );
+    }
   }
 
   if (type === "link") {
     return (
-      <a key={`component-${index}`} href={attributes?.href || "#"} {...attributes}>
+      <a
+        key={`component-${index}`}
+        href={attributes?.href || "#"}
+        {...attributes}
+      >
         {components && components.map(renderComponent)}
       </a>
     );
@@ -78,52 +117,32 @@ const renderComponent = (component: any, index: number) => {
     return <Slides key={`component-${index}`} />;
   }
   if (type === "faq-section") {
-    console.log(type,'adsjlksadfjlksadfjkl')
     return <Faq key={`component-${index}`} />;
-  }
-
-  else if (type === "custom-code") {
+  } else if (type === "custom-code") {
     return (
       <Fragment key={`component-${index}`}>
-        <div dangerouslySetInnerHTML={{__html : component['custom-code-plugin__code']}}/>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: component["custom-code-plugin__code"],
+          }}
+        />
       </Fragment>
-    )
+    );
+  } else if (type === "slides") {
+    return <Slides key={`component-${index}`} />;
+  } else if (type == "constant-slides") {
+    return <ConstantSlides key={`component-${index}`} />;
+  } else if (type == "horizontal-slides") {
+    return <HorizontalSliderWithScroll key={`component-${index}`} />;
+  } else if (type == "constant-horizantal-slides") {
+    return <ConstantHorizantalScroll key={`component-${index}`} />;
+  } else if (type == "dots-slides") {
+    return <DotSlideScroll key={`component-${index}`} />;
+  } else if (type == "tab") {
+    return <TabSection key={`component-${index}`} />;
+  } else if (type == "simple-slider") {
+    return <SimpleSlider key={`component-${index}`} />;
   }
-  else if (type === "slides") {
-    return (
-      <Slides key={`component-${index}`} />
-    );
-  } 
-  else if (type == "constant-slides") {
-    return (
-      <ConstantSlides key={`component-${index}`} />
-    );
-  } 
-  else if (type == "horizontal-slides") {
-    return (
-      <HorizontalSliderWithScroll key={`component-${index}`} />
-    );
-  } 
-  else if (type == "constant-horizantal-slides") {
-    return (
-      <ConstantHorizantalScroll key={`component-${index}`} />
-    );
-  } 
-  else if (type == "dots-slides") {
-    return (
-      <DotSlideScroll key={`component-${index}`} />
-    );
-  } 
-  else if (type == "tab") {
-    return (
-      <TabSection key={`component-${index}`} />
-    );
-  } 
-  else if (type == "simple-slider") {
-    return (
-      <SimpleSlider key={`component-${index}`} />
-    );
-  } 
 
   return (
     <Tag key={`component-${index}`} {...elementProps}>
@@ -185,69 +204,51 @@ const Preview = ({ pageId }: { pageId: string }) => {
       };
     }
   }, [stylesData]);
-  
+
   return (
     <div>
       {finalData.map((item: any, index: number) => {
-      console.log(item,'akdjflkasdflkajdfffffffffffffffffffffffffffffffffffff')
-        console.log(item?.type,'akldfjsladkfjslkdfjslkdfjslkdfjslfkjs')
         if (item.type === "custom-slider") {
-          return <ImageSlider slides={item.attributes?.slides} key={`component-${index}`} />;
-        } 
-        else if (item.type === "Slider-logos") {
           return (
-            <SrollableLogos slides={item.attributes?.logoSlides} key={`component-${index}`} />
+            <ImageSlider
+              slides={item.attributes?.slides}
+              key={`component-${index}`}
+            />
           );
-        } 
-        else if (item.type === "custom-code") {
+        } else if (item.type === "Slider-logos") {
+          return (
+            <SrollableLogos
+              slides={item.attributes?.logoSlides}
+              key={`component-${index}`}
+            />
+          );
+        } else if (item.type === "custom-code") {
           // return (
           //   <>
           //     <div dangerouslySetInnerHTML={{__html : item['custom-code-plugin__code']}}/>
           //   </>
           // )
-          console.log('Custommmmmmmmmmmmmmm Codeeeeeeeee')
+          console.log("Custommmmmmmmmmmmmmm Codeeeeeeeee");
           return (
             <>
               <h1>hello</h1>
             </>
-          )
-        }
-        else if (item.type === "slides") {
-          return (
-            <Slides key={`component-${index}`} />
           );
-        } 
-        else if (item.type == "constant-slides") {
-          return (
-            <ConstantSlides key={`component-${index}`} />
-          );
-        } 
-        else if (item.type == "horizontal-slides") {
-          return (
-            <HorizontalSliderWithScroll key={`component-${index}`} />
-          );
-        } 
-        else if (item.type == "constant-horizantal-slides") {
-          return (
-            <ConstantHorizantalScroll key={`component-${index}`} />
-          );
-        } 
-        else if (item.type == "dots-slides") {
-          return (
-            <DotSlideScroll key={`component-${index}`} />
-          );
-        } 
-        else if (item.type == "tab") {
-          return (
-            <TabSection key={`component-${index}`} />
-          );
-        } 
-        else if (item.type == "simple-slider") {
-          return (
-            <SimpleSlider key={`component-${index}`} />
-          );
-        } 
-        else if (item.type == "dynamic-products") {
+        } else if (item.type === "slides") {
+          return <Slides key={`component-${index}`} />;
+        } else if (item.type == "constant-slides") {
+          return <ConstantSlides key={`component-${index}`} />;
+        } else if (item.type == "horizontal-slides") {
+          return <HorizontalSliderWithScroll key={`component-${index}`} />;
+        } else if (item.type == "constant-horizantal-slides") {
+          return <ConstantHorizantalScroll key={`component-${index}`} />;
+        } else if (item.type == "dots-slides") {
+          return <DotSlideScroll key={`component-${index}`} />;
+        } else if (item.type == "tab") {
+          return <TabSection key={`component-${index}`} />;
+        } else if (item.type == "simple-slider") {
+          return <SimpleSlider key={`component-${index}`} />;
+        } else if (item.type == "dynamic-products") {
           return (
             <FeaturedCategory
               key={`component-${index}`}
@@ -265,10 +266,12 @@ const Preview = ({ pageId }: { pageId: string }) => {
         } else if (item.type === "slides") {
           return <Slides key={`component-${index}`} />;
         } else if (item.type === "faq-section") {
-          console.log('Custommmmmmmmmmmmmmm Codeeeeeeeee')
+          console.log("Custommmmmmmmmmmmmmm Codeeeeeeeee");
           return <Faq key={`component-${index}`} />;
         } else {
-          return <div key={`component-${index}`}>{renderComponent(item, index)}</div>;
+          return (
+            <div key={`component-${index}`}>{renderComponent(item, index)}</div>
+          );
         }
       })}
     </div>
