@@ -41,7 +41,7 @@ const FeaturedCategory = ({ serverSideData }: FeaturedCategoryProps) => {
   }, [activetab]);
 
   return (
-    <section className="text-center pb-10" style={{width: '1800px',margin:'auto'}}>
+    <section className="text-center pb-10" style={{width: '1400px',margin:'auto'}}>
       <>
         <div className="flex justify-center space-x-4 mb-8">
           {ServerData?.map((name: any, index: number) => {
