@@ -114,13 +114,13 @@ const GsLogosSlider = (editor: Editor, pageId: string) => {
     view: {
       onRender({ el, model }) {
         const root = createRoot(el);
-        const attributes = model.get("attributes");
-        const logoSlides = attributes ? attributes.logoSlides : defaultSlides;
+        // const attributes = model.get("attributes");
+        // const logoSlides = attributes ? attributes.logoSlides : defaultSlides;
 
-        root.render(<SrollableLogos slides={logoSlides} />);
+        root.render(<SrollableLogos/>);
 
-        model.on("logoSlides:updated", (logoSlides) => {
-          root.render(<SrollableLogos slides={logoSlides} />);
+        model.on("logoSlides:updated", () => {
+          root.render(<SrollableLogos/>);
         });
 
         const addButton = el.querySelector(
