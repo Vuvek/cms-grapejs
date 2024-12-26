@@ -41,16 +41,16 @@ const FeaturedCategory = ({ serverSideData }: FeaturedCategoryProps) => {
   }, [activetab]);
 
   return (
-    <section className="text-center py-10">
+    <section className="text-center pb-10" style={{width: '1800px',margin:'auto'}}>
       <>
-        <div className="flex justify-center space-x-4 mb-3">
+        <div className="flex justify-center space-x-4 mb-8">
           {ServerData?.map((name: any, index: number) => {
             return (
               <button
-                className={`text-anchor border-b-2 ${
+                className={`text-anchor text-xl font-semibold p-2 ${
                   name.tabName == activetab
-                    ? "text-blue-500 border-blue-500 border-2 p-2"
-                    : "text-black border-black"
+                    ? "text-blue-500 border-b-2 border-blue-500 p-2"
+                    : "text-black"
                 }`}
                 key={index}
                 onClick={() => setActiveTab(name.tabName)}

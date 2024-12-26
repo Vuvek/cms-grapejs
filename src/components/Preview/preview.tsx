@@ -17,6 +17,7 @@ import SimpleSlider from "../simpleSlider/simpleSlider";
 
 import AOS from "aos";
 import "aos/dist/aos.css"; // AOS styles
+import Accordion from "../accordion/accordion";
 
 const renderComponent = (component: any, index: number) => {
   if (component.type === "textnode") {
@@ -62,29 +63,109 @@ const renderComponent = (component: any, index: number) => {
   if (type === "video") {
     if (component?.provider === "vi") {
       return (
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            height:'100vh',
-            paddingTop: "50.25%", // Maintain 16:9 aspect ratio
-          }}
-        >
-          <iframe
+        <>
+          {/* <div
             style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              border: "none",
+              position: "relative",
+              paddingTop: "42.25%", // Maintain 16:9 aspect ratio
             }}
-            src={`${component?.src}?autoplay=1&muted=1&background=1`} // Ensure correct Vimeo params
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-            title="Vimeo Video"
-          ></iframe>
-        </div>
+          >
+            <iframe
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                border: "none",
+              }}
+              src={`${component?.src}?autoplay=1&muted=1&background=1`} // Ensure correct Vimeo params
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              title="Vimeo Video"
+            ></iframe>
+          </div> */}
+
+          <div
+            style={{
+              position: "relative",
+              paddingTop: "42.25%", // Maintain 16:9 aspect ratio
+            }}
+          >
+            <iframe
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                border: "none",
+              }}
+              src={`${component?.src}?autoplay=1&muted=1&background=1`} // Ensure correct Vimeo params
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              title="Vimeo Video"
+            ></iframe>
+            <div className="flex justify-center items-center w-full absolute undefined inset-0 p-1 lg:p-4 text-white">
+              <div
+                className="max-w-6xl w-full"
+                style={{ background: "rgb(, 1)", padding: "20px" }}
+              >
+                <div
+                  className="normal-case text-[25px] sm:text-[38px] lg:text-[72px] font-family-1 leading-[28px] sm:leading-[47px] lg:leading-[80px] tracking-[1px] font-semibold text-center aos-init aos-animate"
+                  data-aos="zoom-in-up"
+                  style={{
+                    color: "#ffffff",
+                    textShadow: "2px 0px 6px  rgba(51, 51, 51, 0.3)",
+                  }}
+                >
+                  <h1>Corporate and Promotional Custom Branded Apparel</h1>
+                </div>
+                <div
+                  className="normal-case text-[13px] sm:text-[17px] lg:text-[20px] font-family-1 leading-[14px] sm:leading-[20px] lg:leading-[28px] tracking-[1.4px] font-normal text-center pt-[10px] sm:pt-[10px] lg:pt-[10px] aos-init aos-animate"
+                  data-aos="zoom-in"
+                  style={{
+                    color: "#ffffff",
+                    textShadow: "2px 0px 6px  rgba(51, 51, 51, 0.3)",
+                  }}
+                >
+                  Enjoy Expert Branding. Customize Premium Apparel and Logo
+                  Merchandise.
+                </div>
+                <div
+                  className="pt-0 lg:pt-5 text-center"
+                  title="Discover Our Brands"
+                >
+                  <a
+                    data-aos="zoom-in"
+                    title="Corporate Gear Offers Exclusive Access to Customize Your Logo on Premium Brands."
+                    target="_self"
+                    className="text-center uppercase text-[13px] sm:text-[17px] lg:text-[20px] leading-[14px] sm:leading-[19px] lg:leading-[24px] font-semibold inline-block custbtn-primary pl-[8px] sm:pl-[15px] lg:pl-[43px] pr-[8px] sm:pr-[15px] lg:pr-[43px] pt-[7px] sm:pt-[10px] lg:pt-[19px] pb-[7px] sm:pb-[10px] lg:pb-[19px] aos-init aos-animate bg-[#000000] rounded-[50px] px-[43px] py-[20px]"
+                    rel=""
+                    href="https://www.corporategear.com/brands.html"
+                  >
+                    <span>Discover Our Brands</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* <div style={{ padding: "56.25% 0 0 0", position: "relative" }}>
+            <iframe
+              src="https://player.vimeo.com/video/934584474?h=e77d1fa27a&amp;badge=0&amp;background=1&quality=1080p&autoplay=1&loop=1&autopause=0&amp?muted=1;player_id=0&amp;app_id=58479"
+              allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+              style={{
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%",
+              }}
+              title="Website Background Montage_4 h265 2K"
+            ></iframe>
+          </div> */}
+        </>
       );
     } else {
       return (
@@ -145,8 +226,17 @@ const renderComponent = (component: any, index: number) => {
     return <TabSection key={`component-${index}`} />;
   } else if (type == "simple-slider") {
     return <SimpleSlider key={`component-${index}`} />;
-  }else if (type === 'Slider-logos') {
-    return <SrollableLogos />
+  } else if (type === "Slider-logos") {
+    return <SrollableLogos />;
+  } else if (type == "dynamic-products") {
+    return (
+      <FeaturedCategory
+        key={`component-${index}`}
+        serverSideData={component?.attributes?.serverSideData}
+      />
+    );
+  } else if (type == "accordion") {
+    return <Accordion key={`component-${index}`} />;
   }
 
   return (
@@ -164,29 +254,28 @@ const Preview = ({ pageId }: { pageId: string }) => {
   const [stylesData, setStylesData] = useState<[]>([]);
 
   useEffect(() => {
-
     setTimeout(function () {
-          AOS.init({
-            disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-            startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
-            initClassName: "aos-init", // class applied after initialization
-            animatedClassName: "aos-animate", // class applied on animation
-            useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-            disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-            debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-            throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
-    
-            // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-            // offset: 120, // offset (in px) from the original trigger point
-            // delay: 0, // values from 0 to 3000, with step 50ms
-            duration: 400, // values from 0 to 3000, with step 50ms
-            easing: "ease", // default easing for AOS animations
-            once: false, // whether animation should happen only once - while scrolling down
-            mirror: true, // whether elements should animate out while scrolling past them
-            anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger
-          });
-          AOS.refresh();
-        }, 100);
+      AOS.init({
+        disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
+        startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
+        initClassName: "aos-init", // class applied after initialization
+        animatedClassName: "aos-animate", // class applied on animation
+        useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
+        disableMutationObserver: false, // disables automatic mutations' detections (advanced)
+        debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
+        throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+
+        // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
+        // offset: 120, // offset (in px) from the original trigger point
+        // delay: 0, // values from 0 to 3000, with step 50ms
+        duration: 400, // values from 0 to 3000, with step 50ms
+        easing: "ease", // default easing for AOS animations
+        once: false, // whether animation should happen only once - while scrolling down
+        mirror: true, // whether elements should animate out while scrolling past them
+        anchorPlacement: "top-bottom", // defines which position of the element regarding to window should trigger
+      });
+      AOS.refresh();
+    }, 100);
 
     const fetchData = async () => {
       try {
@@ -244,7 +333,7 @@ const Preview = ({ pageId }: { pageId: string }) => {
               key={`component-${index}`}
             />
           );
-        }  else if (item.type === "custom-code") {
+        } else if (item.type === "custom-code") {
           // return (
           //   <>
           //     <div dangerouslySetInnerHTML={{__html : item['custom-code-plugin__code']}}/>

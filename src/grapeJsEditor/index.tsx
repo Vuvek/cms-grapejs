@@ -30,6 +30,7 @@ import GsSimpleSlider from "@/components/simpleSlider/gsSimpleSlider";
 
 import AOS from "aos";
 import "aos/dist/aos.css"; // AOS styles
+import GsAccordion from "@/components/accordion/gsAccordion";
 
 interface grapejsEditorProps {
   serverSideData?: serversideDataProps[];
@@ -112,7 +113,10 @@ const GrapeJsEditor: React.FC<grapejsEditorProps> = ({ serverSideData }) => {
                   { id: "flip-left", label: "Flip Left", value: "flip-left" },
                   { id: "flip-right", label: "Flip Right", value: "flip-right" },
                   { id: "zoom-in", label: "Zoom In", value: "zoom-in" },
+                  { id: "zoom-in-up", label: "Zoom In Up", value: "zoom-in-up" },
+                  { id: "zoom-in-down", label: "Zoom In Down", value: "zoom-in-down" },
                   { id: "zoom-out", label: "Zoom Out", value: "zoom-out" },
+                  { id: "zoom-out-up", label: "Zoom Out Up", value: "zoom-out-up" },
                 ],
                 onChange: (value: any) => {
                   console.log(value,'akldjflkasdjfklsadjflkasdjflkasd')
@@ -222,6 +226,7 @@ const GrapeJsEditor: React.FC<grapejsEditorProps> = ({ serverSideData }) => {
     GsDotSlideScroll(editorRef.current);
     GsTabs(editorRef.current);
     GsSimpleSlider(editorRef.current);
+    GsAccordion(editorRef.current);
 
     // Reinitialize AOS after components are added
     editorRef.current.on("component:add", () => {

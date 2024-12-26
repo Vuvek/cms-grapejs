@@ -183,7 +183,7 @@ const SrollableLogos = () => {
 
   return (
     <>
-      <div className="mx-auto mb-8 justify-center items-center text-center logo-slider" style={{width:'1500px'}}>
+      <div className="mx-auto mb-8 justify-center items-center text-center logo-slider" style={{width:'1750px'}}>
         <div className="">
           <div className="relative">
             <button
@@ -235,8 +235,8 @@ const SrollableLogos = () => {
                   spaceBetween: 10,
                 },
                 1200: {
-                  slidesPerView: 6,
-                  slidesPerGroup: 6,
+                  slidesPerView: 7,
+                  slidesPerGroup: 7,
                   spaceBetween: 20,
                 },
               }}
